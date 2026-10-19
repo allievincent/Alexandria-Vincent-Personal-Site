@@ -155,7 +155,6 @@ export const projects = [
 
 export const funFacts = [
   'Goalkeeper for Villanova Women\'s Soccer',
-  'Proud owner of Mac, my English bulldog',
   'Conversational Spanish',
   'Really into XR / AR dev',
   'Volunteered with Special Olympics',
