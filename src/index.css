@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* so the sticky nav doesn't cover section titles */
+}
+
+body {
+  @apply bg-white text-gray-800 dark:bg-[#0f1115] dark:text-gray-200;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* waving hand from a CSS tricks tutorial */
+.wave {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60%, 100% { transform: rotate(0deg); }
+}
+
+.cursor {
+  animation: blink 0.8s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* fade in on scroll (like AOS but without the library) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .wave, .cursor { animation: none; }
+  .fade-in { opacity: 1; transform: none; transition: none; }
+}
